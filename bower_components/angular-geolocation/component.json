@@ -1,0 +1,13 @@
+{
+  "name": "angular-geolocation",
+  "version": "0.0.1",
+  "main": "geolocation.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "angular": "~1.x"
+  }
+}

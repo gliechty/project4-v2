@@ -1,0 +1,140 @@
+<!doctype html>
+<!-- Declares meanMapApp as the starting Angular module -->
+<html class="no-js" ng-app="FishrApp">
+<head>
+    <meta charset="utf-8">
+    <title>Fishr</title>
+    <meta name="description" content="An example demonstrating Google Map integration with MEAN Apps">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="style.css"/>
+    <!-- Holder JS -->
+    <script src="../bower_components/holderjs/holder.js"></script>
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNpsXKkrBCO49SGbKNyIRyJxBd3NbGFiI&v=3"></script>
+    <!-- Modernizr -->
+    <script src="../bower_components/modernizr/bin/modernizr"></script>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/angularjs-geolocation/dist/angularjs-geolocation.min.js"></script>
+    <!-- angular scripts from /public/js -->
+    <script src="js/app.js"></script>
+    <script src="js/addCtrl.js"></script>
+    <script src="js/gservice.js"></script>
+</head>
+<body ng-controller="addCtrl">
+<div class="container">
+    <div class="header">
+        <ul class="nav nav-pills pull-right">
+            <li active><a href="">Join the Team</a></li>
+            <li disabled><a href="">Find Teammates</a></li>
+        </ul>
+        <h3 class="text-muted">Fishr</h3>
+    </div>
+    <!-- Map and Side Panel -->
+    <div class="row content">
+        <!-- Google Map -->
+        <div class="col-md-7">
+            <div id="map" style="width:645px; height:645px"></div>
+        </div>
+        <!-- Side Panel -->
+        <div class="col-md-5">
+            <div class="panel panel-default">
+                <!-- Panel Title -->
+                <div class="panel-heading">
+                    <h2 class="panel-title text-center">Join the Scotch Team! <span class="glyphicon glyphicon-map-marker"></span></h2>
+                </div>
+                <!-- Panel Body -->
+                <div class="panel-body">
+                    <!-- Creates Form (novalidate disables HTML validation, Angular will control) -->
+                    <form name ="addForm" novalidate>
+                        <!-- Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope -->
+                        <div class="form-group">
+                            <label for="username">Your name
+                            <span class="badge">Required</span>
+                            </label>
+                            <input type="text" class="form-control" id="username" placeholder="OldandGold" ng-model="formData.username" required>
+                        </div>
+
+
+                <!--         <label class="radio control-label">Gender</label>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="optionsRadios" id="radiomale" value="Male" ng-model="formData.gender" required>
+                                Male
+                            </label>
+                        </div>
+                        <div class="radio" required>
+                            <label>
+                                <input type="radio" name="optionsRadios" id="radiofemale" value="Female" ng-model="formData.gender" required>
+                                Female
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="optionsRadios" id="radioother" value="What's it to ya?" ng-model="formData.gender" required>
+                                What's it to ya?
+                            </label>
+                        </div> -->
+
+                        <div class="form-group">
+                            <label>The Fly</label>
+                            <select class="form-control" id="flies" placeholder="your fly">
+                              <option>Pheasant Tail Nymph</option>
+                              <option>Elk Hair Caddis</option>
+                              <option>Parachute Adams</option>
+                              <option>Copper John</option>
+                              <option>Woolly Bugger</option>
+                              <option>BWO</option>
+                              <option>RS2</option>
+                              <option>Stimulator</option>
+                              <option>Mercury Midge</option>
+                              <option>Prince Nymph</option>
+                              <option>Zebra Midge</option>
+                              <option>Ant</option>
+                              <option>San Juan Worm</option>
+                              <option>Black Beauty</option>
+                              <option>Mayfly</option>
+                              <option>Parachute Hopper</option>
+                              <option>Foam Beetle</option>
+                              <option>Wulff</option>
+                              <option>Mysis Shrimp</option>
+                              <option>Stonefly</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" class="form-control" id="age" placeholder="72" ng-model="formData.age" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="language">Favorite Language</label>
+                            <input type="text" class="form-control" id="language" placeholder="Fortran" ng-model="formData.favlang" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="latitude">Latitude</label>
+                            <input type="text" class="form-control" id="latitude" value="39.500" ng-model="formData.latitude" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="longitude">Longitude</label>
+                            <input type="text" class="form-control" id="longitude" value="-98.350" ng-model="formData.longitude" readonly>
+                        </div>
+                        <button type="submit" class="btn btn-danger btn-block" ng-click="createUser()" ng-disabled="addForm.$invalid">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <!-- Footer -->
+
+    <!-- <div class="footer">
+
+    </div> -->
+
+</div>
+</body>
+</html>

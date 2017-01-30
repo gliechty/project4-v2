@@ -1,0 +1,23 @@
+{
+  "name": "angular-geolocation",
+  "main": "geolocation.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "angular": "~1.x"
+  },
+  "homepage": "https://github.com/carlo-colombo/angular-geolocation",
+  "_release": "351c8593ac",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "351c8593acd5a944e41cf6f81503a04ff1eecf6d"
+  },
+  "_source": "https://github.com/carlo-colombo/angular-geolocation.git",
+  "_target": "*",
+  "_originalSource": "angular-geolocation",
+  "_direct": true
+}
