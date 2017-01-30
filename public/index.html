@@ -80,7 +80,7 @@
                         </div> -->
 
                         <div class="form-group">
-                            <label>The Fly</label>
+                            <label for="fly">The Fly</label>
                             <select class="form-control" id="flies" placeholder="your fly">
                               <option>Pheasant Tail Nymph</option>
                               <option>Elk Hair Caddis</option>
@@ -107,12 +107,24 @@
 
 
                         <div class="form-group">
-                            <label for="age">Age</label>
-                            <input type="number" class="form-control" id="age" placeholder="72" ng-model="formData.age" required>
+                            <label for="size">Size</label>
+                            <select class="form-control" id="size" placeholder="size">
+                              <option>2</option>
+                              <option>4</option>
+                              <option>6</option>
+                              <option>8</option>
+                              <option>10</option>
+                              <option>12</option>
+                              <option>14</option>
+                              <option>16</option>
+                              <option>18</option>
+                              <option>20</option>
+                              <option>22</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label for="language">Favorite Language</label>
-                            <input type="text" class="form-control" id="language" placeholder="Fortran" ng-model="formData.favlang" required>
+                            <label for="language">Catch Date</label>
+                            <input type="datetime-local" id="date" placeholder="Date" ng-model="formData.favlang" required>
                         </div>
                         <div class="form-group">
                             <label for="latitude">Latitude</label>
