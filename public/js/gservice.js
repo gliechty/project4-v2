@@ -108,7 +108,9 @@ var initialize = function(latitude, longitude) {
             position: n.latlon,
             map: map,
             title: "Big Map",
-            icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+            // icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+            icon: "../assets/fishing-pier.svg"
+
         });
 
         // For each marker created, add a listener that checks for clicks
