@@ -1,6 +1,6 @@
 // Creates the gservice factory. This will be the primary means by which we interact with Google Maps
 angular.module('gservice', [])
-    .factory('gservice', function($http){
+    .factory('gservice', function($rootScope, $http){
 
         // Initialize Variables
         // -------------------------------------------------------------
@@ -17,8 +17,8 @@ angular.module('gservice', [])
         /////////////////////////////////////
         // Is this in the right place????????
 
-        // googleMapService.clickLat  = 0;
-        // googleMapService.clickLong = 0;
+        googleMapService.clickLat  = 0;
+        googleMapService.clickLong = 0;
 
         //////////////////////////////////////
 
@@ -142,13 +142,19 @@ var initialize = function(latitude, longitude) {
         });
 
         // When a new spot is selected, delete the old red bouncing marker
-        if(lastMarker){
-            lastMarker.setMap(null);
-        }
+        
+        // if(lastMarker){
+        //     lastMarker.setMap(null);
+        // }
 
         // Create a new red bouncing marker and move to it
         lastMarker = marker;
         map.panTo(marker.position);
+
+        // Is this the right place???
+        googleMapService.clickLat = marker.getPosition().lat();
+        googleMapService.clickLong = marker.getPosition().lng();
+        $rootScope.$broadcast("clicked");
     });
 
 };
