@@ -52,36 +52,62 @@
                     <!-- Creates Form (novalidate disables HTML validation, Angular will control) -->
                     <form name ="addForm" novalidate>
                         <!-- Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope -->
+
+                        <!-- NAME -->
                         <div class="form-group">
-                            <label for="username">Username <span class="badge">All fields required</span></label>
-                            <input type="text" class="form-control" id="username" placeholder="OldandGold" ng-model="formData.username" required>
+                            <label for="username">Username<span class="badge">All fields required</span></label>
+                            <input type="text" class="form-control" id="username" placeholder="BNCOZO1" ng-model="formData.username" required>
                         </div>
-                        <label class="radio control-label">Gender</label>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="optionsRadios" id="radiomale" value="Male" ng-model="formData.gender">
-                                Male
-                            </label>
-                        </div>
-                        <div class="radio" required>
-                            <label>
-                                <input type="radio" name="optionsRadios" id="radiofemale" value="Female" ng-model="formData.gender">
-                                Female
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="optionsRadios" id="radioother" value="What's it to ya?" ng-model="formData.gender">
-                                What's it to ya?
-                            </label>
-                        </div>
+                        
+                        <!-- FLY -->
                         <div class="form-group">
-                            <label for="age">Age</label>
-                            <input type="number" class="form-control" id="age" placeholder="72" ng-model="formData.age" required>
-                        </div>
+                            <label for="fly">The Fly</label>
+                            <select type="text" class="form-control" id="fly" placeholder="e.g. 18" ng-model="formData.fly" required>
+                                <option>Pheasant Tail Nymph</option>
+                                <option>Elk Hair Caddis</option>
+                                <option>Parachute Adams</option>
+                                <option>Copper John</option>
+                                <option>Woolly Bugger</option>
+                                <option>BWO</option>
+                                <option>RS2</option>
+                                <option>Stimulator</option>
+                                <option>Mercury Midge</option>
+                                <option>Prince Nymph</option>
+                                <option>Zebra Midge</option>
+                                <option>Ant</option>
+                                <option>San Juan Worm</option>
+                                <option>Black Beauty</option>
+                                <option>Mayfly</option>
+                                <option>Parachute Hopper</option>
+                                <option>Foam Beetle</option>
+                                <option>Wulff</option>
+                                <option>Mysis Shrimp</option>
+                                <option>Stonefly</option>
+                            </select>
+                        </div>  
+                        
+                        <!-- FLY SIZE -->
                         <div class="form-group">
-                            <label for="language">Favorite Language</label>
-                            <input type="text" class="form-control" id="language" placeholder="Fortran" ng-model="formData.favlang" required>
+                            <label for="size">Fly Size</label>
+                            <select type="number" class="form-control" id="size" placeholder="e.g. 18" ng-model="formData.size" required>
+                                <option>2</option>
+                                <option>4</option>
+                                <option>6</option>
+                                <option>8</option>
+                                <option>10</option>
+                                <option>12</option>
+                                <option>14</option>
+                                <option>16</option>
+                                <option>18</option>
+                                <option>20</option>
+                                <option>22</option>
+                            </select>
+                        </div>
+
+                        <!-- PHOTO URL -->
+                        <div class="form-group">
+                            <label for="photo">Photo</label>
+                            <input type="text" class="form-control" id="photo" placeholder="enter photo url" ng-model="formData.url" required>
                         </div>
                         <div class="form-group">
                             <label for="latitude">Latitude</label>

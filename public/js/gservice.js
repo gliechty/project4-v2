@@ -59,11 +59,16 @@ angular.module('gservice', [])
 
                 // Create popup windows for each record
                 var  contentString =
+                    // '<p><b>Username</b>: ' + user.username +
+                    // '<br><b>Fly</b>: ' + user.fly +
+                    // '<br><b>Fly Size</b>: ' + user.size +
+                    // '<br><b>Favorite Language</b>: ' + user.favlang +
+                    // '</p><img src="https://www.deneki.com/wp-content/uploads/2010/02/Brown-Trout-1.jpg" style="height:100px;">';
+
                     '<p><b>Username</b>: ' + user.username +
-                    '<br><b>Age</b>: ' + user.age +
-                    '<br><b>Gender</b>: ' + user.gender +
-                    '<br><b>Favorite Language</b>: ' + user.favlang +
-                    '</p><img src="https://www.deneki.com/wp-content/uploads/2010/02/Brown-Trout-1.jpg" style="height:100px;">';
+                    '<br><b>Fly</b>: ' + user.fly +
+                    '<br><b>Fly Size</b>: ' + user.size +
+                    '</p><img src="' + user.url + '" style="height:100px;">';
 
                 // Converts each of the JSON records into Google Maps Location format (Note [Lat, Lng] format).
                 locations.push({
@@ -73,9 +78,9 @@ angular.module('gservice', [])
                         maxWidth: 320
                     }),
                     username: user.username,
-                    gender: user.gender,
-                    age: user.age,
-                    favlang: user.favlang
+                    fly: user.fly,
+                    size: user.size,
+                    url: user.url
             });
         }
         // location is now an array populated with records in Google Maps format

@@ -47,9 +47,9 @@ addCtrl.controller('addCtrl', function($scope, $http, $rootScope, geolocation, g
         // Grabs all of the text box fields
         var userData = {
             username: $scope.formData.username,
-            gender: $scope.formData.gender,
-            age: $scope.formData.age,
-            favlang: $scope.formData.favlang,
+            fly: $scope.formData.fly,
+            size: $scope.formData.size,
+            url: $scope.formData.url,
             location: [$scope.formData.longitude, $scope.formData.latitude],
             htmlverified: $scope.formData.htmlverified
         };
@@ -61,9 +61,9 @@ addCtrl.controller('addCtrl', function($scope, $http, $rootScope, geolocation, g
 
                 // Clears after submission
                 $scope.formData.username = "";
-                $scope.formData.gender = "";
-                $scope.formData.age = "";
-                $scope.formData.favlang = "";
+                $scope.formData.fly = "";
+                $scope.formData.size = "";
+                $scope.formData.url = "";
                 gservice.refresh($scope.formData.latitude, $scope.formData.longitude);
                 
             })
