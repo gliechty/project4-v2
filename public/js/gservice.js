@@ -11,8 +11,8 @@ angular.module('gservice', [])
         var locations = [];
 
         // Selected Location (initialize to center of America)
-        var selectedLat = 39.50;
-        var selectedLong = -98.35;
+        var selectedLat = 39.739;
+        var selectedLong = -104.990;
 
         /////////////////////////////////////
         // Is this in the right place????????
@@ -96,7 +96,7 @@ var initialize = function(latitude, longitude) {
 
         // Create a new map and place in the index.html page
         var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 3,
+            zoom: 11,
             center: myLatLng
         });
     }
@@ -142,7 +142,7 @@ var initialize = function(latitude, longitude) {
         });
 
         // When a new spot is selected, delete the old red bouncing marker
-        
+
         // if(lastMarker){
         //     lastMarker.setMap(null);
         // }
