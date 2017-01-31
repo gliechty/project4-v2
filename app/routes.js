@@ -27,15 +27,15 @@ module.exports = function(app) {
 
     // delete users
 
-    // app.delete('/users/id:', function(req, res){
-    //     User.findById(req.params.id)
-    //     .then(function(user){
-    //         if(!user) return error(res, "no user with that id");
-    //         return user.destroy();
-    //     });
-    //     .then(function(){
-    //         res.redirect("/");
-    //     });
-    // });
+    app.delete('/users/id:', function(req, res){
+        User.findById(req.params.id)
+        .then(function(user){
+            if(!user) return error(res, "no user with that id");
+            return user.destroy();
+        })
+        .then(function(){
+            res.redirect("/");
+        });
+    });
 
 };  

@@ -32,10 +32,15 @@
             <li active><a href="#">Log In</a></li>
             <li disabled><a href="#">Log Out</a></li>
         </ul>
-        <h1 class="text-muted">Fishr</h3>
+        <h1 class="text-muted title">Fishr</h3>
     </div>
     <!-- Map and Side Panel -->
     <div class="row content">
+
+        <!-- Search box for map -->
+        <!-- <input id="pac-input" class="controls" type="text" placeholder="Search Box"> -->
+
+
         <!-- Google Map -->
         <div class="col-md-7">
             <div id="map" style="width:645px; height:645px"></div>
@@ -58,8 +63,8 @@
                             <label for="username">Username<span class="badge">All fields required</span></label>
                             <input type="text" class="form-control" id="username" placeholder="BNCOZO1" ng-model="formData.username" required>
                         </div>
-                        
-                        <!-- FLY -->
+
+                        <!-- FLY ...... WORKS --> 
                         <div class="form-group">
                             <label for="fly">The Fly</label>
                             <select type="text" class="form-control" id="fly" placeholder="e.g. 18" ng-model="formData.fly" required>
