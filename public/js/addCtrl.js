@@ -16,15 +16,15 @@ addCtrl.controller('addCtrl', function($scope, $http, $rootScope, geolocation, g
 
 
     // Get coordinates based on mouse click. When a click event is detected....
-        $rootScope.$on("clicked", function(){
-            console.log("clicked");
+        // $rootScope.$on("clicked", function(){
+        //     console.log("clicked");
             // Run the gservice functions associated with identifying coordinates
-            $scope.$apply(function(){
-                $scope.formData.latitude = parseFloat(gservice.clickLat).toFixed(3);
-                $scope.formData.longitude = parseFloat(gservice.clickLong).toFixed(3);
-                $scope.formData.htmlverified = "Nope (Thanks for spamming my map...)";
-            });
-        });
+        //     $scope.$apply(function(){
+        //         $scope.formData.latitude = parseFloat(gservice.clickLat).toFixed(3);
+        //         $scope.formData.longitude = parseFloat(gservice.clickLong).toFixed(3);
+        //         $scope.formData.htmlverified = "Nope (Thanks for spamming my map...)";
+        //     });
+        // });
 
 
         // Grabs all of the text box fields
@@ -51,7 +51,7 @@ addCtrl.controller('addCtrl', function($scope, $http, $rootScope, geolocation, g
                 
             })
             .catch(function (data) {
-                console.log('Error: ' + data);
+                console.log('What an Error!!! ' + data);
             });
     };
 });

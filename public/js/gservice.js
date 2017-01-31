@@ -16,8 +16,10 @@ angular.module('gservice', [])
 
         /////////////////////////////////////
         // Is this in the right place????????
-        googleMapService.clickLat  = 0;
-        googleMapService.clickLong = 0;
+
+        // googleMapService.clickLat  = 0;
+        // googleMapService.clickLong = 0;
+
         //////////////////////////////////////
 
         // Functions
@@ -128,6 +130,7 @@ var initialize = function(latitude, longitude) {
     });
     // Function for moving to a selected location
     map.panTo(new google.maps.LatLng(latitude, longitude));
+
 
     // Clicking on the Map moves the bouncing red marker
     google.maps.event.addListener(map, 'click', function(e){
