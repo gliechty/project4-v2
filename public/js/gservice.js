@@ -1,4 +1,3 @@
-// Creates the gservice factory. This will be the primary means by which we interact with Google Maps
 angular.module('gservice', [])
     .factory('gservice', function($rootScope, $http){
 
@@ -22,8 +21,6 @@ angular.module('gservice', [])
 
         //////////////////////////////////////
 
-        // Functions
-        // --------------------------------------------------------------
         // Refresh the Map with new data. Function will take new latitude and longitude coordinates.
         googleMapService.refresh = function(latitude, longitude){
 
@@ -66,7 +63,7 @@ angular.module('gservice', [])
                     '<br><b>Age</b>: ' + user.age +
                     '<br><b>Gender</b>: ' + user.gender +
                     '<br><b>Favorite Language</b>: ' + user.favlang +
-                    '</p>';
+                    '</p><img src="https://www.deneki.com/wp-content/uploads/2010/02/Brown-Trout-1.jpg" style="height:100px;">';
 
                 // Converts each of the JSON records into Google Maps Location format (Note [Lat, Lng] format).
                 locations.push({
@@ -134,7 +131,7 @@ var initialize = function(latitude, longitude) {
     map.panTo(new google.maps.LatLng(latitude, longitude));
 
 
-    // Clicking on the Map moves the bouncing red marker
+    // Clicking on the Map adds red marker
     google.maps.event.addListener(map, 'click', function(e){
         var marker = new google.maps.Marker({
             position: e.latLng,
