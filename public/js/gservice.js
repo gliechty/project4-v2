@@ -50,7 +50,6 @@ angular.module('gservice', [])
 
             // Loop through all of the JSON entries provided in the response
             for(var i= 0; i < response.length; i++) {
-                console.log("response is " + response);
                 var user = response[i];
 
                 // Create popup windows for each record
@@ -59,7 +58,8 @@ angular.module('gservice', [])
                     '<p><b>Username</b>: ' + user.username +
                     '<br><b>Fly</b>: ' + user.fly +
                     '<br><b>Fly Size</b>: ' + user.size +
-                    '</p><img src="' + user.url + '" style="height:100px;">';
+                    '</p><img src="' + user.url + '" style="height:100px;">'+
+                    '<br><button name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button>';
 
                 // Converts each of the JSON records into Google Maps Location format (Note [Lat, Lng] format).
                 locations.push({
@@ -89,14 +89,17 @@ var initialize = function(latitude, longitude) {
 
         // Create a new map and place in the index.html page
         var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 11,
-            center: myLatLng
+            zoom: 15,
+            center: myLatLng,
+            mapTypeId: 'terrain'
         });
     }
 
+   
+
     // Loop through each location in the array and place a marker
     locations.forEach(function(n, i){
-        console.log('gets location markers');
+        // console.log('gets location markers');
         var marker = new google.maps.Marker({
             position: n.latlon,
             map: map,

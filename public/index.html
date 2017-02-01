@@ -6,21 +6,24 @@
     <title>Fishr</title>
     <meta name="description" content="An example demonstrating Google Map integration with MEAN Apps">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- CSS -->
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
     <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css"
-    <!-- Holder JS -->
-    <script src="../bower_components/holderjs/holder.js"></script>
+    <link rel="stylesheet" href="./style.css">
+
     <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNpsXKkrBCO49SGbKNyIRyJxBd3NbGFiI"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNpsXKkrBCO49SGbKNyIRyJxBd3NbGFiI&libraries=places"></script>
+
     <!-- Modernizr -->
     <script src="../bower_components/modernizr/bin/modernizr"></script>
+
     <!-- JS Source -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/angular-route/angular-route.js"></script>
     <script src="../bower_components/angularjs-geolocation/dist/angularjs-geolocation.min.js"></script>
+
      <!-- Angular Scripts -->
     <script src="./js/app.js"></script>
     <script src="./js/addCtrl.js"></script>
@@ -40,7 +43,10 @@
 
         <!-- Search box for map -->
         <!-- <input id="pac-input" class="controls" type="text" placeholder="Search Box"> -->
+        
+        <!-- search box -->
 
+        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
 
         <!-- Google Map -->
         <div class="col-md-7">
