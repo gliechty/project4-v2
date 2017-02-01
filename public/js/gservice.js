@@ -78,79 +78,79 @@ angular.module('gservice', [])
         return locations;
     };
 
-// Initializes the map
-var initialize = function(latitude, longitude) {
+    // Initializes the map
+    var initialize = function(latitude, longitude) {
 
-    // Uses the selected lat, long as starting point
-    var myLatLng = {lat: selectedLat, lng: selectedLong};
+        // Uses the selected lat, long as starting point
+        var myLatLng = {lat: selectedLat, lng: selectedLong};
 
-    // If map has not been created already...
-    if (!map){
+        // If map has not been created already...
+        if (!map){
 
-        // Create a new map and place in the index.html page
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 15,
-            center: myLatLng,
-            mapTypeId: 'terrain'
+            // Create a new map and place in the index.html page
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: myLatLng,
+                mapTypeId: 'terrain'
+            });
+        }
+
+       
+
+        // Loop through each location in the array and place a marker
+        locations.forEach(function(n, i){
+            // console.log('gets location markers');
+            var marker = new google.maps.Marker({
+                position: n.latlon,
+                map: map,
+                title: "Big Map",
+                // icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+                icon: "../assets/fishing-pier.svg"
+
+            });
+
+            // For each marker created, add a listener that checks for clicks
+            google.maps.event.addListener(marker, 'click', function(e){
+
+                // When clicked, open the selected marker's message
+                currentSelectedMarker = n;
+                n.message.open(map, marker);
+            });
         });
-    }
 
-   
-
-    // Loop through each location in the array and place a marker
-    locations.forEach(function(n, i){
-        // console.log('gets location markers');
+        // Set initial location as a bouncing red marker
+        var initialLocation = new google.maps.LatLng(latitude, longitude);
         var marker = new google.maps.Marker({
-            position: n.latlon,
-            map: map,
-            title: "Big Map",
-            // icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
-            icon: "../assets/fishing-pier.svg"
-
-        });
-
-        // For each marker created, add a listener that checks for clicks
-        google.maps.event.addListener(marker, 'click', function(e){
-
-            // When clicked, open the selected marker's message
-            currentSelectedMarker = n;
-            n.message.open(map, marker);
-        });
-    });
-
-    // Set initial location as a bouncing red marker
-    var initialLocation = new google.maps.LatLng(latitude, longitude);
-    var marker = new google.maps.Marker({
-        position: initialLocation,
-        animation: google.maps.Animation.DROP,
-        map: map,
-        icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
-    });
-    // Function for moving to a selected location
-    map.panTo(new google.maps.LatLng(latitude, longitude));
-
-
-    // Clicking on the Map adds red marker
-    google.maps.event.addListener(map, 'click', function(e){
-        var marker = new google.maps.Marker({
-            position: e.latLng,
+            position: initialLocation,
             animation: google.maps.Animation.DROP,
             map: map,
             icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
         });
+        // Function for moving to a selected location
+        map.panTo(new google.maps.LatLng(latitude, longitude));
 
 
-        // Create a new marker and move to it
-        lastMarker = marker;
-        map.panTo(marker.position);
+        // Clicking on the Map adds red marker
+        google.maps.event.addListener(map, 'click', function(e){
+            var marker = new google.maps.Marker({
+                position: e.latLng,
+                animation: google.maps.Animation.DROP,
+                map: map,
+                icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
+            });
 
-        // Is this the right place???
-        googleMapService.clickLat = marker.getPosition().lat();
-        googleMapService.clickLong = marker.getPosition().lng();
-        $rootScope.$broadcast("clicked");
-    });
 
-};
+            // Create a new marker and move to it
+            lastMarker = marker;
+            map.panTo(marker.position);
+
+            // Is this the right place???
+            googleMapService.clickLat = marker.getPosition().lat();
+            googleMapService.clickLong = marker.getPosition().lng();
+            $rootScope.$broadcast("clicked");
+        });
+
+    };
 
 // Refresh the page upon window load. Use the initial latitude and longitude
 google.maps.event.addDomListener(window, 'load',
@@ -158,3 +158,8 @@ google.maps.event.addDomListener(window, 'load',
 
 return googleMapService;
 });
+
+
+
+
+// 

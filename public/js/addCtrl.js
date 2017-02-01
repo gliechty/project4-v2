@@ -74,8 +74,11 @@ addCtrl.controller('addCtrl', function($scope, $http, $rootScope, geolocation, g
 
     // Deletes user (marker)
     $scope.deleteUser = function() {
-        
-    }
+        $http.get('/users').then(function(response){
+            var users = response.data.username;
+            console.log(users);
+        });
+    };
 });
 
 

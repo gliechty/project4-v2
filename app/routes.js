@@ -32,7 +32,7 @@ module.exports = function(app) {
         User.findById(req.params.id)
         .then(function(user){
             if(!user) return error(res, "no user with that id");
-            return user.destroy();
+            return user.remove();
         })
         .then(function(){
             res.redirect("/");
