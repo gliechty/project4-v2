@@ -71,6 +71,11 @@ addCtrl.controller('addCtrl', function($scope, $http, $rootScope, geolocation, g
                 console.log('What an Error!!! ' + data);
             });
     };
+
+    // Deletes user (marker)
+    $scope.deleteUser = function() {
+        
+    }
 });
 
 

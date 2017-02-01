@@ -27,7 +27,8 @@ module.exports = function(app) {
 
     // delete users
 
-    app.delete('/users/id:', function(req, res){
+    app.delete('/users/:id', function(req, res){
+        console.log("delete route hit");
         User.findById(req.params.id)
         .then(function(user){
             if(!user) return error(res, "no user with that id");

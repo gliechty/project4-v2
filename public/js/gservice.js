@@ -1,15 +1,13 @@
 angular.module('gservice', [])
     .factory('gservice', function($rootScope, $http){
 
-        // Initialize Variables
-        // -------------------------------------------------------------
-        // Service our factory will return
+
+        // Service the factory will return
         var googleMapService = {};
 
-        // Array of locations obtained from API calls
         var locations = [];
 
-        // Selected Location (initialize to center of America)
+        // Selected Location (Start at Denver)
         var selectedLat = 39.739;
         var selectedLong = -104.990;
 
@@ -44,9 +42,7 @@ angular.module('gservice', [])
             });
         };
 
-        // Private Inner Functions
-        // --------------------------------------------------------------
-        // Convert a JSON of users into map points
+        // Convert users JSON into markers
         var convertToMapPoints = function(response){
 
             // Clear the locations holder
@@ -59,12 +55,7 @@ angular.module('gservice', [])
 
                 // Create popup windows for each record
                 var  contentString =
-                    // '<p><b>Username</b>: ' + user.username +
-                    // '<br><b>Fly</b>: ' + user.fly +
-                    // '<br><b>Fly Size</b>: ' + user.size +
-                    // '<br><b>Favorite Language</b>: ' + user.favlang +
-                    // '</p><img src="https://www.deneki.com/wp-content/uploads/2010/02/Brown-Trout-1.jpg" style="height:100px;">';
-
+                    
                     '<p><b>Username</b>: ' + user.username +
                     '<br><b>Fly</b>: ' + user.fly +
                     '<br><b>Fly Size</b>: ' + user.size +
@@ -145,13 +136,8 @@ var initialize = function(latitude, longitude) {
             icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
         });
 
-        // When a new spot is selected, delete the old red bouncing marker
 
-        // if(lastMarker){
-        //     lastMarker.setMap(null);
-        // }
-
-        // Create a new red bouncing marker and move to it
+        // Create a new marker and move to it
         lastMarker = marker;
         map.panTo(marker.position);
 

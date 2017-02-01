@@ -1,7 +1,11 @@
-/*h1.text-muted.title{
+h1.text-muted.title{
 	margin: 0 auto;
+	padding: 5px;
+	font-family: 'Architects Daughter', cursive;
+	font-weight: bold;
+	font-size: 36px;
+
+}
+/*div.header{
 	padding: 2%;
 }*/
-div.header{
-	padding: 2%;
-}
