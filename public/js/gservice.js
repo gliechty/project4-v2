@@ -191,7 +191,7 @@ angular.module('gservice', [])
             // Is this the right place???
             googleMapService.clickLat = marker.getPosition().lat();
             googleMapService.clickLong = marker.getPosition().lng();
-            $rootScope.$broadcast("clicked");
+            $rootScope.$broadcast("clicked on-gservice");
         });
 
     };
