@@ -31,14 +31,15 @@ angular.module('gservice', [])
 
             // Perform an AJAX call to get all of the records in the db.
             $http.get('/users').then(function(response){
-
+                console.log(response);
                 // Convert the results into Google Map Format
                 locations = convertToMapPoints(response.data);
 
                 // Then initialize the map.
                 initialize(latitude, longitude);
+
             }).catch(function(err){
-                console.log("the error is" + err);
+                console.log("the error is " + err);
             });
         };
 
@@ -59,7 +60,7 @@ angular.module('gservice', [])
                     '<br><b>Fly</b>: ' + user.fly +
                     '<br><b>Fly Size</b>: ' + user.size +
                     '</p><img src="' + user.url + '" style="height:100px;">'+
-                    '<br><button name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button>';
+                    '<br><button class="delete" id="deleteButton" onClick="deleteUser">X</button>';
 
                 // Converts each of the JSON records into Google Maps Location format (Note [Lat, Lng] format).
                 locations.push({
@@ -72,7 +73,7 @@ angular.module('gservice', [])
                     fly: user.fly,
                     size: user.size,
                     url: user.url
-            });
+                });
         }
         // location is now an array populated with records in Google Maps format
         return locations;
@@ -113,9 +114,13 @@ angular.module('gservice', [])
             google.maps.event.addListener(marker, 'click', function(e){
 
                 // When clicked, open the selected marker's message
+
                 currentSelectedMarker = n;
+
                 n.message.open(map, marker);
+
             });
+
         });
 
         // Set initial location as a bouncing red marker
@@ -158,6 +163,20 @@ google.maps.event.addDomListener(window, 'load',
 
 return googleMapService;
 });
+
+
+// psudocode for this (include in main function)
+var deleteUser = function(){
+    console.log("yeeeeah deleteUser");
+
+    // get lat/long for the marker clicked
+    // 
+
+    $http.get('/users').then(function(response){
+        locations = convertToMapPoints(response.data);
+
+    });
+};
 
 
 

@@ -25,8 +25,7 @@ module.exports = function(app) {
         });
     });
 
-    // delete users
-
+    // delete users - route works
     app.delete('/users/:id', function(req, res){
         console.log("delete route hit");
         User.findById(req.params.id)
