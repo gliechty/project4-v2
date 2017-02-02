@@ -8,6 +8,7 @@ var UserSchema = new Schema({
     fly: {type: String, required: true},
     size: {type: Number, required: true},
     url: {type: String, required: true},
+    date: {type: Date, required: true},
     location: {type: [Number], required: true}, // [Long, Lat]
     htmlverified: String,
     created_at: {type: Date, default: Date.now},

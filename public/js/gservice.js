@@ -59,6 +59,7 @@ angular.module('gservice', [])
                     '<p><b>Username</b>: ' + user.username +
                     '<br><b>Fly</b>: ' + user.fly +
                     '<br><b>Fly Size</b>: ' + user.size +
+                    
                     '</p><img src="' + user.url + '" style="height:100px;">'+
                     '<br><button class="delete" id="deleteButton" onClick="deleteUser">X</button>';
 

@@ -50,6 +50,7 @@ addCtrl.controller('addCtrl', function($scope, $http, $rootScope, geolocation, g
             fly: $scope.formData.fly,
             size: $scope.formData.size,
             url: $scope.formData.url,
+            date: $scope.formData.date,
             location: [$scope.formData.longitude, $scope.formData.latitude],
             htmlverified: $scope.formData.htmlverified
         };
@@ -64,6 +65,7 @@ addCtrl.controller('addCtrl', function($scope, $http, $rootScope, geolocation, g
                 $scope.formData.fly = "";
                 $scope.formData.size = "";
                 $scope.formData.url = "";
+                $scope.formData.date = "";
                 gservice.refresh($scope.formData.latitude, $scope.formData.longitude);
                 
             })
@@ -77,8 +79,9 @@ addCtrl.controller('addCtrl', function($scope, $http, $rootScope, geolocation, g
         console.log("made it to ctrl");
 
         $http.delete('/users/' + user._id).then(function(response){
-            var users = response.data.username;
-            console.log(users);
+            // var user = response.data.username;
+            // console.log(user);
+            console.log(response);
         });
     };
 });
