@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./style.css">
 
     <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNpsXKkrBCO49SGbKNyIRyJxBd3NbGFiI&libraries=places"></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNpsXKkrBCO49SGbKNyIRyJxBd3NbGFiI&libraries=places"></script> -->
 
     <!-- Modernizr -->
     <script src="../bower_components/modernizr/bin/modernizr"></script>
@@ -29,31 +29,31 @@
     <script src="./js/addCtrl.js"></script>
     <script src="./js/gservice.js"></script>
 </head>
+
 <body ng-controller="addCtrl">
-<div class="container">
+<div class="container" id="body-container">
     <div class="header">
         <ul class="nav nav-pills pull-right">
             <li active><a href="#">Log In</a></li>
             <li disabled><a href="#">Log Out</a></li>
         </ul>
-        <h1 class="text-muted title">Fishr</h3>
+        <div id="title-container" class="container">
+            <h1 class="text-muted title">Fishr</h1>
+        </div>
     </div>
     <!-- Map and Side Panel -->
     <div class="row content">
-
-        <!-- Search box for map -->
-        <!-- <input id="pac-input" class="controls" type="text" placeholder="Search Box"> -->
         
         <!-- search box -->
 
         <input id="pac-input" class="controls" type="text" placeholder="Search Box">
 
         <!-- Google Map -->
+
         <div class="col-md-7">
             <div id="map" style="width:645px; height:645px"></div>
         </div>
 
-        <button onClick="">DUMMY BUTTON</button>
         <!-- Side Panel -->
         <div class="col-md-5">
             <div class="panel panel-default">
@@ -127,7 +127,7 @@
                         <!-- date -->
                         <div class="form-group">
                             <label for="date">Date Caught</label>
-                            <input type="date" class="form-control" id="date" placeholder="date caught" ng-model="formData.date" required>
+                            <input type="date" class="form-control" id="date" close-text="Close" placeholder="date caught" ng-model="formData.date" required>
                         </div>
 
                         <div class="form-group">
@@ -151,5 +151,6 @@
     <hr/>
     <!-- Footer -->
 </div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNpsXKkrBCO49SGbKNyIRyJxBd3NbGFiI&libraries=places"></script>
 </body>
 </html>

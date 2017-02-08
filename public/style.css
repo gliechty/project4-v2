@@ -3,9 +3,13 @@ h1.text-muted.title{
 	padding: 5px;
 	font-family: 'Architects Daughter', cursive;
 	font-weight: bold;
-	font-size: 36px;
-
+	font-size: 60px;
+	margin: 0 auto;
 }
-/*div.header{
-	padding: 2%;
-}*/
+#title-container{
+	text-align: center;
+	margin: 10px 10px 30px 10px;
+}
+#body-container{
+	background: url("http://www.amazingwallpaperz.com/wp-content/uploads/Fishing-HD-Wallpapers.jpg");
+}

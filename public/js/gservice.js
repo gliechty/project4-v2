@@ -11,13 +11,8 @@ angular.module('gservice', [])
         var selectedLat = 39.739;
         var selectedLong = -104.990;
 
-        /////////////////////////////////////
-        // Is this in the right place????????
-
         googleMapService.clickLat  = 0;
         googleMapService.clickLong = 0;
-
-        //////////////////////////////////////
 
         // Refresh the Map with new data. Function will take new latitude and longitude coordinates.
         googleMapService.refresh = function(latitude, longitude){
@@ -31,7 +26,6 @@ angular.module('gservice', [])
 
             // Perform an AJAX call to get all of the records in the db.
             $http.get('/users').then(function(response){
-                console.log(response);
                 // Convert the results into Google Map Format
                 locations = convertToMapPoints(response.data);
 
@@ -42,6 +36,10 @@ angular.module('gservice', [])
                 console.log("the error is " + err);
             });
         };
+///////////////////////////////////////////////////////
+//////////////Magic happens below//////////////////////
+///////////////////////////////////////////////////////
+
 
         // Convert users JSON into markers
         var convertToMapPoints = function(response){
@@ -59,9 +57,9 @@ angular.module('gservice', [])
                     '<p><b>Username</b>: ' + user.username +
                     '<br><b>Fly</b>: ' + user.fly +
                     '<br><b>Fly Size</b>: ' + user.size +
-                    
+                    '<br><b>Date Caught</b>: ' + user.date  +
                     '</p><img src="' + user.url + '" style="height:100px;">'+
-                    '<br><button class="delete" id="deleteButton" onClick="deleteUser">X</button>';
+                    '<br><button class="delete" id="deleteButton" onClick="deleteUser()">X</button>';
 
                 // Converts each of the JSON records into Google Maps Location format (Note [Lat, Lng] format).
                 locations.push({
@@ -73,7 +71,8 @@ angular.module('gservice', [])
                     username: user.username,
                     fly: user.fly,
                     size: user.size,
-                    url: user.url
+                    url: user.date,
+                    date: user.url
                 });
         }
         // location is now an array populated with records in Google Maps format
@@ -95,6 +94,12 @@ angular.module('gservice', [])
                 center: myLatLng,
                 mapTypeId: 'terrain'
             });
+
+            // Create the search box and link it to the UI element.
+            var input = document.getElementById('pac-input');
+            var searchBox = new google.maps.places.SearchBox(input);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
         }
 
        
@@ -173,10 +178,10 @@ var deleteUser = function(){
     // get lat/long for the marker clicked
     // 
 
-    $http.get('/users').then(function(response){
-        locations = convertToMapPoints(response.data);
+    // $http.get('/users').then(function(response){
+    //     locations = convertToMapPoints(response.data);
 
-    });
+    // });
 };
 
 
