@@ -5,11 +5,53 @@ h1.text-muted.title{
 	font-weight: bold;
 	font-size: 60px;
 	margin: 0 auto;
+	color: rgba(247, 145, 27, 0.83);
 }
 #title-container{
-	text-align: center;
+	/*text-align: center;*/
 	margin: 10px 10px 30px 10px;
+	width: 100%e;
 }
 #body-container{
 	background: url("http://www.amazingwallpaperz.com/wp-content/uploads/Fishing-HD-Wallpapers.jpg");
+	margin: 0;
+	width:100%;
+}
+div.column-md-5.half-screen{
+	border: 10px solid black;
+	margin: 0;
+	padding: 2%;
+}
+div#map{
+	margin: 0;
+}
+div.column-md-5.half-screen{
+	padding: 2%;
+}
+div.panel.panel-default{
+	margin-bottom: 0;
+}
+#messagetext{
+	font-family: 'Architects Daughter', cursive;
+	color: white;
+}
+div#message-container{
+	width: 60%;
+	margin: 20px auto;
+	border: 5px solid orange;
+	border-radius: 20px;
+}
+#main-content{
+	padding-right: 2%;
+}
+@media screen and (max-width:690px){
+	#messagetext{
+		font-size: 15px;
+	}
+	div#message-container{
+		width: 90%;
+		margin: 10px auto;
+		border: 5px solid orange;
+		border-radius: 20px;
+	}
 }

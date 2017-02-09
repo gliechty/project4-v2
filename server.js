@@ -7,7 +7,7 @@ var methodOverride  = require('method-override');
 var app             = express();
 
 // DB connection
-mongoose.connect("mongodb://localhost/FishrApp");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/FishrApp");
 
 app.use(express.static(__dirname + '/public'));                 // sets the static files location to public
 app.use('/bower_components',  express.static(__dirname + '/bower_components')); // Use BowerComponents
@@ -24,3 +24,6 @@ require('./app/routes.js')(app);
 
 app.listen(port);
 console.log('App listening on port ' + port);
+
+// app.listen(process.env.PORT || 3000);
+// console.log("server started");

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Fishr</title>
-    <meta name="description" content="An example demonstrating Google Map integration with MEAN Apps">
+    <meta name="description" content="FISHr">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSS -->
@@ -33,29 +33,34 @@
 <body ng-controller="addCtrl">
 <div class="container" id="body-container">
     <div class="header">
-        <ul class="nav nav-pills pull-right">
+        <!-- <ul class="nav nav-pills pull-right">
             <li active><a href="#">Log In</a></li>
             <li disabled><a href="#">Log Out</a></li>
-        </ul>
+        </ul> -->
         <div id="title-container" class="container">
             <h1 class="text-muted title">Fishr</h1>
         </div>
+        <hr/>
+        <div id="message-container" class="container">
+            <h3 id="messagetext">FISHr is an open-source single page app designed to help fly fishermen and fisherwomen alike discover the flys that kill it at different times and different altitudes. Share your catches and join the community!</h3>
+        </div>
     </div>
     <!-- Map and Side Panel -->
-    <div class="row content">
+    <div class="row content" id="main-content">
         
         <!-- search box -->
 
-        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+<!--         <input id="pac-input" class="controls" type="text" placeholder="Search Box"> -->
+
 
         <!-- Google Map -->
 
-        <div class="col-md-7">
-            <div id="map" style="width:645px; height:645px"></div>
+        <div class="col-md-7 col-sm-7 col-lg-7 half-screen"  id="map-container">
+            <div id="map" style="width:100%; height:716px; border:10px solid black; border-radius: 10px"></div>
         </div>
 
         <!-- Side Panel -->
-        <div class="col-md-5">
+        <div class="col-md-5 col-sm-5 col-lg-5 half-screen" style="border:10px solid black; border-radius: 10px; padding: 0; margin:0">
             <div class="panel panel-default">
                 <!-- Panel Title -->
                 <div class="panel-heading">

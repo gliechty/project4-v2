@@ -28,7 +28,7 @@ angular.module('gservice', [])
             $http.get('/users').then(function(response){
                 // Convert the results into Google Map Format
                 locations = convertToMapPoints(response.data);
-
+                console.log(locations);
                 // Then initialize the map.
                 initialize(latitude, longitude);
 
@@ -58,8 +58,9 @@ angular.module('gservice', [])
                     '<br><b>Fly</b>: ' + user.fly +
                     '<br><b>Fly Size</b>: ' + user.size +
                     '<br><b>Date Caught</b>: ' + user.date  +
-                    '</p><img src="' + user.url + '" style="height:100px;">'+
-                    '<br><button class="delete" id="deleteButton" onClick="deleteUser()">X</button>';
+                    '</p><img src="' + user.url + '" style="height:100px;">'
+                    // +
+                    // '<br><button class="delete" id="deleteButton" onClick="deleteUser()">X</button>';
 
                 // Converts each of the JSON records into Google Maps Location format (Note [Lat, Lng] format).
                 locations.push({
@@ -96,9 +97,10 @@ angular.module('gservice', [])
             });
 
             // Create the search box and link it to the UI element.
-            var input = document.getElementById('pac-input');
-            var searchBox = new google.maps.places.SearchBox(input);
-            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+            // var input = document.getElementById('pac-input');
+            // var searchBox = new google.maps.places.SearchBox(input);
+            // console.log(input);
+            // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
         }
 
@@ -183,8 +185,3 @@ var deleteUser = function(){
 
     // });
 };
-
-
-
-
-// 
