@@ -12,21 +12,21 @@ addCtrl.controller('addCtrl', function($scope, $http, $rootScope, geolocation, g
     $scope.formData.longitude = -98.350;
 
     // Get User's actual coordinates 
-    // geolocation.getLocation().then(function(data){
+    geolocation.getLocation().then(function(data){
 
-    //     // Set the latitude and longitude equal to the HTML5 coordinates
-    //     coords = {lat:data.coords.latitude, long:data.coords.longitude};
+        // Set the latitude and longitude equal to the HTML5 coordinates
+        coords = {lat:data.coords.latitude, long:data.coords.longitude};
 
-    //     // Display coordinates in location textboxes rounded to five decimal points
-    //     $scope.formData.longitude = parseFloat(coords.long).toFixed(5);
-    //     $scope.formData.latitude = parseFloat(coords.lat).toFixed(5);
+        // Display coordinates in location textboxes rounded to five decimal points
+        $scope.formData.longitude = parseFloat(coords.long).toFixed(5);
+        $scope.formData.latitude = parseFloat(coords.lat).toFixed(5);
 
-    //     // Display message confirming that the coordinates verified.
-    //     $scope.formData.htmlverified = "Yep (Thanks for giving us real data!)";
+        // Display message confirming that the coordinates verified.
+        $scope.formData.htmlverified = "Yep (Thanks for giving us real data!)";
 
-    //     gservice.refresh($scope.formData.latitude, $scope.formData.longitude);
+        gservice.refresh($scope.formData.latitude, $scope.formData.longitude);
 
-    // });
+    });
 
 
     // Get coordinates based on click
@@ -85,10 +85,3 @@ addCtrl.controller('addCtrl', function($scope, $http, $rootScope, geolocation, g
         });
     };
 });
-
-
-
-
-
-
-
