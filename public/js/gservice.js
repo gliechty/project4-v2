@@ -8,14 +8,28 @@ angular.module('gservice', [])
         var locations = [];
 
         // Selected Location (Start at Denver)
-        var selectedLat = 39.739;
-        var selectedLong = -104.990;
+        var selectedLat = 39.75820;
+        var selectedLong = -105.00734;
 
         googleMapService.clickLat  = 0;
         googleMapService.clickLong = 0;
 
         // Refresh the Map with new data. Function will take new latitude and longitude coordinates.
         googleMapService.refresh = function(latitude, longitude){
+
+
+            // test for searchbox///
+             // var input = document.getElementById('pac-input');
+             //    var searchBox = new google.maps.places.SearchBox(input);
+             //    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+             //    // Bias the SearchBox results towards current map's viewport.
+             //    map.addListener('bounds_changed', function() {
+             //      searchBox.setBounds(map.getBounds());
+             //    });
+                
+
+
 
             // Clears the holding array of locations
             locations = [];
@@ -26,6 +40,9 @@ angular.module('gservice', [])
 
             // Perform an AJAX call to get all of the records in the db.
             $http.get('/users').then(function(response){
+
+                // console.log(response);
+
                 // Convert the results into Google Map Format
                 locations = convertToMapPoints(response.data);
                 console.log(locations);
@@ -102,6 +119,23 @@ angular.module('gservice', [])
             // console.log(input);
             // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
+// START TEST FOR AUTOCOMPLETE
+            var input = document.getElementById('pac-input');
+            var searchBox = new google.maps.places.SearchBox(input);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+            // Bias the SearchBox results towards current map's viewport.
+            map.addListener('bounds_changed', function() {
+            searchBox.setBounds(map.getBounds());
+        });
+        //     searchBox.addListener('places_changed', function() {
+        //   var places = searchBox.getPlaces();
+
+        //   if (places.length == 0) {
+        //     return;
+        //   }
+        // });
+
         }
 
        
@@ -140,7 +174,11 @@ angular.module('gservice', [])
             icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
         });
         // Function for moving to a selected location
-        map.panTo(new google.maps.LatLng(latitude, longitude));
+
+// UNCOMMENT!!!!!
+
+
+        // map.panTo(new google.maps.LatLng(latitude, longitude));
 
 
         // Clicking on the Map adds red marker
@@ -160,7 +198,7 @@ angular.module('gservice', [])
             // Is this the right place???
             googleMapService.clickLat = marker.getPosition().lat();
             googleMapService.clickLong = marker.getPosition().lng();
-            $rootScope.$broadcast("clicked");
+            $rootScope.$broadcast("clicked on-gservice");
         });
 
     };
